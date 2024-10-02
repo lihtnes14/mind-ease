@@ -7,3 +7,4 @@ faiss-cpu
 pypdf2
 langchain-chroma
 langchain-google-genai
+pysqlite3-binary
