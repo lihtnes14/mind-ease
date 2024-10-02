@@ -9,89 +9,13 @@ import streamlit as st
 # Load environment variables
 load_dotenv()
 
-# Inject custom CSS for styling
-st.markdown("""
-    <style>
-        body {
-            background-color: #191825;
-            color: #865DFF;
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
-        }
-        .stApp {
-            background: #191825;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.5);
-        }
-        .title h1 {
-            color: #865DFF;
-            text-align: center;
-            font-weight: 600;
-        }
-        textarea {
-            border: 1px solid #E384FF;
-            border-radius: 8px;
-            padding: 10px;
-            font-size: 16px;
-            background-color: #191825;
-            color: #865DFF;
-            outline: none; 
-        }
-        textarea:focus {
-            border-color: #E384FF; 
-            box-shadow: 0 0 5px rgba(227, 132, 255, 0.5); 
-        }
-        .stButton>button {
-            background-color: #FFA3FD;
-            color: white;
-            padding: 12px 24px;
-            border-radius: 8px;
-            font-size: 16px;
-            margin: 10px 0;
-        }
-        .stButton>button:hover {
-            background-color: #E384FF;
-            color: white;
-            border-color:white;
-        }
-        .response {
-            background-color: #865DFF;
-            padding: 20px;
-            border-radius: 10px;
-            margin-top: 20px;
-            font-size: 18px;
-            line-height: 1.5;
-            color: #191825;
-        }
-        .form-header {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-        [data-testid="stWidgetLabel"] {
-            background-color: #E384FF;
-            font-size: 20px;
-            color: white;
-            border-radius: 15px; 
-            padding: 5px 10px; 
-            display: inline-block;
-            margin-bottom: 10px;
-        }
-        .question {
-            background-color: #dbc6f4;
-            color: #191825;
-            padding: 10px;
-            margin-top: 10px;
-            border-radius: 8px;
-        }
-        .response {
-            background-color: #865DFF;
-            padding: 15px;
-            border-radius: 8px;
-            margin-top: 10px;
-            color: #191825;
-        }
-    </style>
-""", unsafe_allow_html=True)
+# Link the external CSS file
+def load_css(file_name):
+    with open(file_name) as f:
+        st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
+
+# Load the external CSS file
+load_css('style.css')
 
 # Set up the Streamlit app interface
 st.markdown("<div class='title'><center><h1>MindEase</h1></center></div>", unsafe_allow_html=True)
