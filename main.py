@@ -1,6 +1,7 @@
 import os
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain_chroma import Chroma
+from langchain_community.vectorstores import FAISS
 from langchain_google_genai import GoogleGenerativeAIEmbeddings, ChatGoogleGenerativeAI
 from langchain_core.prompts import PromptTemplate
 from dotenv import load_dotenv
@@ -33,7 +34,7 @@ def get_text_chunks(text):
 
 # Function to create a retriever from the chunks of text
 def get_retriever(chunks, db_dir):
-    vector_store = Chroma.from_texts(
+    vector_store = FAISS.from_texts(
         embedding=GoogleGenerativeAIEmbeddings(model="models/text-embedding-004"),
         texts=chunks,
         persist_directory=db_dir
@@ -89,3 +90,4 @@ if st.session_state.conversation_history:
         
         # Display the response with different background and margin
         st.markdown(f"<div class='response'>{response}</div>", unsafe_allow_html=True)
+
