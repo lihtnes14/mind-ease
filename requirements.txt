@@ -1,0 +1,8 @@
+langchain
+langchain-community
+streamlit
+langchain-google-vertexai
+python-dotenv
+faiss-cpu
+pypdf2
+langchain-chroma
